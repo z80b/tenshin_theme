@@ -1,0 +1,26 @@
+{
+  "name": "tenshin_theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/z80b/tenshin_theme.git"
+  },
+  "author": "akozlov78",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/z80b/tenshin_theme/issues"
+  },
+  "homepage": "https://github.com/z80b/tenshin_theme#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.2.4",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.7.0"
+  }
+}

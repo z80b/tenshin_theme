@@ -1,0 +1,27 @@
+name = Tenshin
+description = Tenshin theme
+package = Core
+version = VERSION
+core = 7.x
+stylesheets[all][] = styles.css
+scripts[] = scripts.js
+
+regions[menu] = Menu
+regions[content] = Content
+regions[left_side] = Left column
+regions[right_side] = Right column
+regions[popups] = Popups overlay
+
+regions[footer_firstcolumn] = Footer first column
+regions[footer_secondcolumn] = Footer second column
+regions[footer_thirdcolumn] = Footer third column
+
+settings[social_links]  = 1
+settings[vk_link] = "https://vk.ru"
+settings[ok_link] = "https://odnoklassniki.ru"
+settings[gp_link] = "https://plus.google.com"
+settings[fb_link] = "https://www.facebook.com"
+
+version = "7.41"
+project = "drupal"
+datestamp = "1445457729"

@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+._*
+node_modules/
+.idea
+**/src/.tmp
+scripts.js
+styles.css
