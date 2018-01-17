@@ -1,3 +1,27 @@
 <div class="lp-page">
-    <nav class="lp-page__menu"><?php print render($page['menu']); ?></nav>
+    <section class="lp-page__header lp-header">
+        <nav class="lp-header__menu"><?php print render($page['menu']); ?></nav>
+        <div class="lp-header__sharing lp-sharing">
+            <a class="lp-sharing__button lp-sharing__button--tw"></a>
+            <a class="lp-sharing__button lp-sharing__button--fb"></a>
+        </div>
+        <?php if ($slider_images): ?>
+        <div class="lp-header__slider">
+            <?php foreach ($slider_images as $uri): ?>
+            <img src="<?php print file_create_url($uri) ?>">
+            <?php endforeach ?>
+        </div>
+        <?php endif ?>
+        <?php if ($header_teasers): ?>
+        <div class="lp-header__teasers">
+            <?php foreach ($header_teasers as $teaser): ?>
+            <div class="lp-header-teaser">
+                <h2 class="lp-header-teaser__title"><?php print $teaser->title ?></h2>
+                <span class="lp-header-teaser__text"><?php print strip_tags($teaser->body_summary) ?></span>
+                <a class="lp-header-teaser__button href="<?php print url('/node/'. $teaser->nid) ?>"></a>
+            </div>
+            <?php endforeach ?>
+        </div>
+        <?php endif ?>
+    </section>
 </div>
