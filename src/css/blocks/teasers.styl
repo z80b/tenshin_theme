@@ -1,0 +1,53 @@
+.lp-header__teasers
+    @extends $clear-block
+    relative()
+    display block
+    width 926px
+    margin 0 auto
+    padding 25px 0
+    z-index 2
+    
+.lp-header-teaser
+    relative()
+    display block
+    float left
+    width 220px
+    margin 0 0 0 15px
+    background inline-image('teaser-bg.gif') repeat
+    border-radius 4px
+    transition 1s background-image ease
+    
+    &:first-child
+        margin 0
+        
+    &:hover
+        background-image inline-image('teaser-bg-hover.gif')
+    
+    &__title
+        font 700 18px/2 Arial
+        text-shadow 1px 1px 1px #000
+        color #fff
+        margin 0
+        padding 0 15px
+        background-color #ffffff54
+        border-radius 4px 4px 0 0
+        border solid 3px #9b9b9b
+        border-bottom none
+        
+    &__text
+        display block
+        font 500 11px/14px Arial
+        color #fff
+        height 80px
+        padding 2px 15px
+        box-sizing border-box
+        border-radius 0 0 4px 4px
+        border solid 3px #7b7b7b
+        border-top none
+        background linear-gradient(to bottom, transparent 0%, #222 100%)
+        
+    &__button
+        @extends $red-button
+        absolute bottom 10px left 15px
+        width 120px
+        

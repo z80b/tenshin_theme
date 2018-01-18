@@ -14,7 +14,7 @@ function slider_images() {
 }
 
 function header_teasers() {
-$query = db_select('node', 'n');
+    $query = db_select('node', 'n');
     $query->join('field_data_body', 'f', 'f.entity_id = n.nid');
     return $query
         ->fields('n', array('nid', 'title'))
@@ -27,7 +27,19 @@ $query = db_select('node', 'n');
         ->fetchAll();
 }
 
+function main_menu() {
+    return $query = db_select('menu_links', 'm')
+        ->fields('m', array('link_path', 'link_title'))
+        ->orderBy('m.weight', 'ASC')
+        ->condition('m.menu_name', 'main-menu', '=')
+        ->condition('m.plid', '0', '=')
+        ->condition('m.hidden', '0', '=')
+        ->execute()
+        ->fetchAll();
+}
+
 function tenshin_theme_process_page(&$variables) {
     $variables['slider_images'] = slider_images();
     $variables['header_teasers'] = header_teasers();
+    $variables['main_menu'] = main_menu();
 }

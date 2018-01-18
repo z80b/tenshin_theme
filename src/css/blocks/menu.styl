@@ -1,0 +1,52 @@
+.lp-menu
+    position relative
+    border-top solid 8px #a00d13
+    background linear-gradient(to bottom, #e5e7e5 0%, #f1f1f1 30%, #f1f1f1 70%, #e5e7e5 100%)
+    z-index 2
+    
+    &__inner
+        position relative
+        box-sizing border-box
+        font-size 0
+        width 926px
+        margin 0 auto
+        text-align right
+    
+    &__button
+        position relative
+        display inline-block
+        font 500 14px/50px Arial
+        color #000
+        letter-spacing 0.1px
+        text-shadow #fff 1px 1px 2px
+        text-decoration none
+        text-transform uppercase
+        padding 0 9px
+        z-index 0
+        
+        &::before
+            content ''
+            display block
+            absolute left 0 top 0 right 0 bottom 0
+            background radial-gradient(ellipse 90% 60%, #fff, #ccc) no-repeat
+            transition 1s opacity ease
+            opacity 0
+            z-index -1
+        
+        &:hover::before
+            opacity 1
+            
+        
+        &::after
+            content ''
+            display block
+            absolute top 0 right 0 width 1px height 100%
+            bg 'images/menu-item-separator.png' 0 100% no-repeat
+            z-index 0
+            
+        
+    &__logo
+        absolute top 0 left 0
+        size 256px 270px
+        bg 'images/logo.png' 50% 50% no-repeat        
+        
