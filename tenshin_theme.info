@@ -17,9 +17,7 @@ regions[footer_secondcolumn] = Footer second column
 regions[footer_thirdcolumn] = Footer third column
 
 settings[social_links]  = 1
-settings[vk_link] = "https://vk.ru"
-settings[ok_link] = "https://odnoklassniki.ru"
-settings[gp_link] = "https://plus.google.com"
+settings[tw_link] = "https://twitter.com"
 settings[fb_link] = "https://www.facebook.com"
 
 version = "7.41"

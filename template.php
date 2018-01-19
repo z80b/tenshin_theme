@@ -42,4 +42,12 @@ function tenshin_theme_process_page(&$variables) {
     $variables['slider_images'] = slider_images();
     $variables['header_teasers'] = header_teasers();
     $variables['main_menu'] = main_menu();
+
+    // Social links
+    $variables['tw_link'] = theme_get_setting('tw_link', 'tenshin_theme');
+    $variables['fb_link'] = theme_get_setting('fb_link', 'tenshin_theme');
+
+    // Footer texts
+    $variables['footer_text_1'] = theme_get_setting('footer_text_1', 'tenshin_theme');
+    $variables['footer_text_2'] = theme_get_setting('footer_text_1', 'tenshin_theme');
 }

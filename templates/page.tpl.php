@@ -19,8 +19,8 @@
         </nav>
         <?php endif ?>
         <div class="lp-header__sharing lp-sharing">
-            <a class="lp-sharing__button lp-sharing__button--tw"></a>
-            <a class="lp-sharing__button lp-sharing__button--fb"></a>
+            <a class="lp-sharing__button lp-sharing__button--tw" href="<?php print $tw_link ?>"></a>
+            <a class="lp-sharing__button lp-sharing__button--fb" href="<?php print $bf_link ?>"></a>
         </div>
         <?php if ($slider_images): ?>
         <div class="lp-header__slider">
