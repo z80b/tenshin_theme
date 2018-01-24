@@ -4,17 +4,11 @@
         <nav class="lp-header__menu lp-menu">
             <div class="lp-menu__inner">
                 <a class="lp-menu__logo" href="/"></a>
-                <?php foreach ($main_menu as $item): ?>
-                <a class="lp-menu__button" href="<?php print $item->link_path ?>"><?php print $item->link_title ?></a>
-                <?php endforeach ?>
-                <a class="lp-menu__button" href="">ПУНКТ 1</a>
-                <a class="lp-menu__button" href="">ПУНКТ 2</a>
-                <a class="lp-menu__button" href="">ПУНКТ 3</a>
-                <a class="lp-menu__button" href="">ПУНКТ 4</a>
-                <a class="lp-menu__button" href="">ПУНКТ 5</a>
-                <a class="lp-menu__button" href="">ПУНКТ 6</a>
-                <a class="lp-menu__button" href="">ПУНКТ 7</a>
-                <a class="lp-menu__button" href="">ПУНКТ 8</a>
+                <div class="lp-menu__buttons">
+                    <?php foreach ($main_menu as $item): ?>
+                    <a class="lp-menu__button" href="<?php print $item->link_path ?>"><?php print $item->link_title ?></a>
+                    <?php endforeach ?>
+                </div>
             </div>
         </nav>
         <?php endif ?>

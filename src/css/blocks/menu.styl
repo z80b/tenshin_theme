@@ -5,23 +5,30 @@
     z-index 2
     
     &__inner
+        @extends $clear-block
         position relative
         box-sizing border-box
         font-size 0
         width 926px
         margin 0 auto
         text-align right
+        
+    &__buttons
+        display table
+        float right
+        width 708px
     
     &__button
+        display table-cell
         position relative
-        display inline-block
-        font 500 14px/50px Arial
+        font 500 12px/50px Arial
         color #000
         letter-spacing 0.1px
         text-shadow #fff 1px 1px 2px
+        text-align center
         text-decoration none
         text-transform uppercase
-        padding 0 9px
+        padding 0
         z-index 0
         
         &::before
