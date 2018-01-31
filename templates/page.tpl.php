@@ -6,7 +6,7 @@
                 <a class="lp-menu__logo" href="/"></a>
                 <div class="lp-menu__buttons">
                     <?php foreach ($main_menu as $item): ?>
-                    <a class="lp-menu__button" href="<?php print $item->link_path ?>"><?php print $item->link_title ?></a>
+                    <a class="lp-menu__button" href="<?php print url($item->link_path) ?>"><?php print $item->link_title ?></a>
                     <?php endforeach ?>
                 </div>
             </div>
@@ -38,8 +38,23 @@
         <?php endif ?>
     </section>
     <section class="lp-page__content">
-        <?php if (!drupal_is_front_page()): ?>
+        <?php if (!$is_front): ?>
         <?php print render($page['content']); ?>
         <?php endif ?>
+    </section>
+    <?php if ($is_front): ?>
+    <section class="lp-bottom">
+        <div class="lp-bottom__info lp-info">
+            <div class="lp-info__left-side"><?php print $footer_text_1 ?></div>
+            <div class="lp-info__right-side"><?php print $footer_text_2 ?></div>
+        </div>
+    </section>
+    <?php endif ?>
+    <section class="lp-footer">
+        <div class="lp-footer__inner">
+            <img class="lp-footer__logo" src="<?php print $logo ?>"/>
+            <span class="lp-footer__copyright"><?php print $site_slogan ?></span>
+            <span class="lp-footer__socials"></span>
+        </div>
     </section>
 </div>
