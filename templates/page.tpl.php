@@ -43,6 +43,23 @@
         <?php endif ?>
     </section>
     <?php if ($is_front): ?>
+    <section class="lp-videos">
+        <div class="lp-videos__inner">
+            <button class="lp-videos__button lp-videos__button--left"></button>
+            <button class="lp-videos__button lp-videos__button--right"></button>
+            <div class="lp-videos__slider js-video-slider">
+                <?php foreach($video_teasers as $teaser): ?>
+                <a  class="lp-videos__slide"
+                    href="<?php print $teaser->video ?>"
+                    title="<?php print $teaser->title ?>"
+                    data-embed-url="<?php print $teaser->embed_url ?>"
+                    style="background-image: url(<?php print file_create_url($teaser->thumbnail) ?>)">
+                        <img class="lp-videos__image" src="<?php print file_create_url($teaser->thumbnail) ?>"/>
+                    </a>
+                <?php endforeach ?>
+            </div>
+        </div>
+    </section>
     <section class="lp-bottom">
         <div class="lp-bottom__info lp-info">
             <div class="lp-info__left-side"><?php print $footer_text_1 ?></div>

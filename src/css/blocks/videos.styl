@@ -1,0 +1,39 @@
+.lp-videos
+    display block
+    bg 'images/video-block-bg.png' top left repeat
+    height 152px
+    
+    &__inner
+        relative width 926px
+        margin 0 auto
+        
+    &__button
+        @extends $red-button
+        absolute width 26px height 152px top 0
+        
+        &--left
+            left 0
+            icon-arrow left 16px #fff 3px
+            
+        &--right
+            right 0
+            icon-arrow right 16px #fff 3px
+            
+    &__slider
+        absolute left 26px width 874px height 152px
+        overflow hidden
+        
+    &__slide
+        display block
+        float left
+        width 174px
+        height 90px
+        background-size cover
+        
+    &__image
+        display block
+        width 100%
+        
+    .slick-list, .slick-track
+        height 154px
+        z-index 1
