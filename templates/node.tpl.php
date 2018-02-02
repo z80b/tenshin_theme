@@ -1,8 +1,18 @@
-<!--?php die('<pre>'. print_r($content, true) .'</pre>')?-->
 <section class="lp-page__node lp-node">
-	<h2 class="lp-node__title"><?php print $title ?> <?php print $test_var ?></h2>
-	<div class="lp-node__body">
-		<div class="lp-node__content"><?php print render($content) ?></div>
-	</div>
-	<div class="lp-node__footer"></div>
+    <h2 class="lp-node__title"><?php print $title ?></h2>
+    <div class="lp-node__body">
+        <div class="lp-node__content">
+            <?php print render($content) ?>
+            <?php if (isset($sub_menu)): ?>
+            <div class="lp-node__submenu lp-submenu">
+                <?php foreach ($sub_menu as $item): ?>
+                <a class="lp-submenu__item"<?php if ($path != $item->link_path): ?> href="<?php print $item->link_path ?>"<?php endif ?>>
+                    <?php print $item->link_title ?>
+                </a>
+                <?php endforeach ?>
+            </div>
+            <?php endif ?>
+        </div>
+    </div>
+    <div class="lp-node__footer"></div>
 </section>

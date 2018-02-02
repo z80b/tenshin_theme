@@ -16,11 +16,11 @@
             <a class="lp-sharing__button lp-sharing__button--tw" href="<?php print $tw_link ?>"></a>
             <a class="lp-sharing__button lp-sharing__button--fb" href="<?php print $fb_link ?>"></a>
         </div>
-        <?php if (drupal_is_front_page()): ?>
+        <?php if ($is_front): ?>
             <?php if ($slider_images): ?>
             <div class="lp-header__slider">
-                <?php foreach ($slider_images as $uri): ?>
-                <img src="<?php print file_create_url($uri) ?>">
+                <?php foreach ($slider_images as $index => $uri): ?>
+                <img class="lp-header__slide" src="<?php print file_create_url($uri) ?>" style="z-index: <?php print -$index ?>">
                 <?php endforeach ?>
             </div>
             <?php endif ?>
@@ -52,9 +52,10 @@
                 <a  class="lp-videos__slide"
                     href="<?php print $teaser->video ?>"
                     title="<?php print $teaser->title ?>"
-                    data-embed-url="<?php print $teaser->embed_url ?>"
-                    style="background-image: url(<?php print file_create_url($teaser->thumbnail) ?>)">
-                        <img class="lp-videos__image" src="<?php print file_create_url($teaser->thumbnail) ?>"/>
+                    data-embed-url="<?php print $teaser->embed_url ?>">
+                        <span class="lp-videos__image-wrapper">
+                            <img class="lp-videos__image" src="<?php print file_create_url($teaser->thumbnail) ?>"/>
+                        </span>
                     </a>
                 <?php endforeach ?>
             </div>

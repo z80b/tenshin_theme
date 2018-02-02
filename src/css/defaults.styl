@@ -26,8 +26,13 @@ $red-button
     border solid 1px #b23430
     border-radius 3px
     color #fff
-    cursor pointer
+    cursor default
     transition .5s opacity ease
+    opacity .8
+    
+    &[href]
+        opacity 1
+        cursor pointer
     
     &:hover
         opacity .8
