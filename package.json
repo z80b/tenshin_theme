@@ -28,6 +28,8 @@
     "gulp-clean-css": "^3.9.2",
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.7.0",
-    "source": "0.0.3"
+    "source": "0.0.3",
+    "underscore-es": "^1.9.8",
+    "vinyl-source-stream": "^2.0.0"
   }
 }

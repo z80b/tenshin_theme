@@ -24,36 +24,18 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
     var browserify = require('browserify'),
         babelify   = require('babelify'),
-        rename     = require('gulp-rename');
+        source     = require('vinyl-source-stream');
 
     return browserify({ entries: 'src/js/index.js'})
-        .transform(babelify, { presets: ['es2015', 'stage-0'] })
-        .bundle()
-        .pipe(rename('scripts.js'))
-        .pipe(gulp.dest('.'));
-});
-
-gulp.task('build', function() {
-    var browserify = require('browserify'),
-        babelify   = require('babelify'),
-        source     = require('source'),
-        rename     = require('gulp-rename');
-
-    return browserify({
-            entries: './src/js/index.js',
-            extensions: ['.js'],
-            debug: true
-        })
-        .transform('babelify', {
+        .transform(babelify, {
             presets: ['es2015', 'stage-0']
         })
-        //.transform('uglifyify', { global: true  })
         .bundle()
         .on('error', function(err){
             console.log('[browserify error]');
             console.log(err.message);
         })
-        .pipe(rename('script.js'))
+        .pipe(source('scripts.js'))
         .pipe(gulp.dest('.'));
 });
 

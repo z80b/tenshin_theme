@@ -1,5 +1,6 @@
-class Test {
+class Test extends Backbone.View {
 	constructor() {
+		super();
 		this.name = 'Ha-ha';
 	}
 
