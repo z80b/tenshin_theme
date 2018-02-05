@@ -18,10 +18,16 @@
   "homepage": "https://github.com/z80b/tenshin_theme#readme",
   "devDependencies": {
     "axis": "^1.0.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^15.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-clean-css": "^3.9.2",
     "gulp-rename": "^1.2.2",
-    "gulp-stylus": "^2.7.0"
+    "gulp-stylus": "^2.7.0",
+    "source": "0.0.3"
   }
 }

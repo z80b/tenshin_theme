@@ -77,3 +77,11 @@
         </div>
     </section>
 </div>
+<div class="lp-popup__overlay js-popup lp-popup--hidden" style="display: none">
+    <div class="lp-popup__wrapper">
+        <div class="lp-popup">
+            <div class="lp-popup__head">Храм Катори</div>
+            <div class="lp-popup__body"></div>
+        </div>
+    </div>
+</div>

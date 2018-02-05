@@ -1,0 +1,46 @@
+.lp-popup
+    absolute()
+    background inline-image('teaser-bg.gif') repeat
+    transform translate(-50%, -50%)
+    
+    &__head
+        font 700 18px/2 Arial
+        text-shadow 1px 1px 1px #000
+        color #fff
+        margin 0
+        padding 0 15px
+        background-color #ffffff54
+        border-radius 4px 4px 0 0
+        border solid 3px #9b9b9b
+        border-bottom none
+        
+    &__body
+        display block
+        font 500 11px/14px Arial
+        color #fff
+        min-height 200px
+        min-width 320px
+        padding 15px
+        box-sizing border-box
+        border-radius 0 0 4px 4px
+        border solid 3px #7b7b7b
+        border-top none
+        background linear-gradient(to bottom, transparent 0%, #222 100%)        
+    
+    &__overlay
+        fixed top 0 left 0 width 100% height 100%
+        background-color rgba(#000, .3)
+        z-index 1000
+        opacity 1
+        transition 1s opacity ease
+        
+    &__wrapper
+        absolute top 50% left 50%
+        transform scale(1)
+        transition 1s transform ease
+        
+    &--hidden
+        opacity 0
+        
+        .lp-popup__wrapper 
+            transform scale(0)
