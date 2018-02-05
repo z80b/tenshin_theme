@@ -3,16 +3,17 @@
     <div class="lp-node__body">
         <div class="lp-node__content">
             <?php print render($content) ?>
-            <?php if (isset($sub_menu)): ?>
+        </div>
+        <?php if (isset($sub_menu)): ?>
             <div class="lp-node__submenu lp-submenu">
                 <?php foreach ($sub_menu as $item): ?>
-                <a class="lp-submenu__item"<?php if ($path != $item->link_path): ?> href="<?php print $item->link_path ?>"<?php endif ?>>
+                <a  class="lp-submenu__item"
+                <?php if ($path != $item->link_path): ?>href="<?php print url($item->link_path) ?>"<?php endif ?>>
                     <?php print $item->link_title ?>
                 </a>
                 <?php endforeach ?>
             </div>
             <?php endif ?>
-        </div>
     </div>
     <div class="lp-node__footer"></div>
 </section>

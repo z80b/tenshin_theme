@@ -54,7 +54,8 @@
                     title="<?php print $teaser->title ?>"
                     data-embed-url="<?php print $teaser->embed_url ?>">
                         <span class="lp-videos__image-wrapper">
-                            <img class="lp-videos__image" src="<?php print file_create_url($teaser->thumbnail) ?>"/>
+                            <!--img class="lp-videos__image" src="<?php print file_create_url($teaser->thumbnail) ?>"/-->
+                            <span class="lp-videos__image" style="background-image: url<?php print file_create_url($teaser->thumbnail) ?>()"></span>
                         </span>
                     </a>
                 <?php endforeach ?>

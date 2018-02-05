@@ -77,6 +77,21 @@ function main_menu() {
         ->fetchAll();
 }
 
+function sub_menu($nid = 0) {
+    $mlid = db_select('menu_links', 'm')
+        ->fields('m', array('mlid'))
+        ->condition('m.link_path', "node/{$nid}", '=')
+        ->execute()
+        ->fetchField();
+    //die("<h1>$nid, $mlid</h1>");
+    return db_select('menu_links', 'm')
+        ->fields('m', array('link_title', 'link_path'))
+        ->orderBy('m.weight', 'ASC')
+        ->condition('m.plid', $mlid, '=')
+        ->execute()
+        ->fetchAll();    
+}
+
 function tenshin_theme_process_html(&$variables) {
     $variables['css'] = array (
         'sites/all/themes/tenshin_theme/styles.css' => array (
@@ -128,8 +143,11 @@ function tenshin_theme_process_page(&$variables) {
 function tenshin_theme_process_node(&$variables) {
     $variables['test_var'] = 'Hello';
     $variables['path'] = request_path();
+    $variables['sub_menu'] = sub_menu($variables['nid']);
     
     if (in_array($variables['path'], array('media/photo', 'media/video'))) {
         $variables['theme_hook_suggestions'][] = 'node__media';
     }
+
+    //die('<pre>'. print_r($variables, true) .'</pre>');
 }

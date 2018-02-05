@@ -11,6 +11,8 @@
         margin 0
         
     &__body
+        display table
+        width 926px
         bg 'images/node-content-bg.png' 50% 0 repeat-y
         
         h3
@@ -23,6 +25,9 @@
             background inline-image('hr-bg.gif') 50% 50% no-repeat
         
     &__content
+        display table-cell
+        box-sizing border-box
+        width 685px
         font 16px/1.5 trebuchet ms, helvetica, sans-serif
         padding 70px 20px 10px
         color #444
@@ -30,3 +35,20 @@
     &__footer
         height 12px
         bg 'images/node-content-bottom.png' 50% 0 no-repeat
+
+    &__submenu
+        display table-cell
+        box-shadow border-box
+        width 240px
+        background url('images/right-content-bg.png') 0 0 repeat-y
+        vertical-align top
+
+    .lp-submenu
+        &__item
+            display block
+            font 700 14px/1.5 Arial
+            text-shadow 1px 1px 1px #fff
+            text-decoration none
+            color #000
+            padding 4px 20px
+            background url('images/submenu-item-bg.png' ) 50% bottom no-repeat
