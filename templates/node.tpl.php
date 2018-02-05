@@ -7,7 +7,7 @@
         <?php if (isset($sub_menu)): ?>
             <div class="lp-node__submenu lp-submenu">
                 <?php foreach ($sub_menu as $item): ?>
-                <a  class="lp-submenu__item"
+                <a  class="lp-submenu__item<?php if ($item->link_path == "node/$nid") print ' lp-submenu__item--active' ?>"
                 <?php if ($path != $item->link_path): ?>href="<?php print url($item->link_path) ?>"<?php endif ?>>
                     <?php print $item->link_title ?>
                 </a>

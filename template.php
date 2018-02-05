@@ -60,10 +60,6 @@ function video_teasers() {
     }
 
     return $result;
-
-    // Always return the larger image, since we're storing images locally.
-    // $tn = "http://img.youtube.com/vi/{$item['value']}/0.jpg";
-
 }
 
 function main_menu() {
@@ -78,16 +74,18 @@ function main_menu() {
 }
 
 function sub_menu($nid = 0) {
-    $mlid = db_select('menu_links', 'm')
-        ->fields('m', array('mlid'))
+    $link = db_select('menu_links', 'm')
+        ->fields('m', array('mlid', 'plid'))
         ->condition('m.link_path', "node/{$nid}", '=')
         ->execute()
-        ->fetchField();
-    //die("<h1>$nid, $mlid</h1>");
+        ->fetchObject();
+
+    $id = ($link->plid == 0) ? $link->mlid : $link->plid;
+
     return db_select('menu_links', 'm')
         ->fields('m', array('link_title', 'link_path'))
         ->orderBy('m.weight', 'ASC')
-        ->condition('m.plid', $mlid, '=')
+        ->condition('m.plid', $id, '=')
         ->execute()
         ->fetchAll();    
 }
@@ -108,18 +106,6 @@ function tenshin_theme_process_html(&$variables) {
             )
         )
     );
-    // Render page_top and page_bottom into top level variables.
-    //$variables['page_top'] = drupal_render($variables['page']['page_top']);
-    // $variables['page_bottom'] = drupal_render($variables['page']['page_bottom']);
-    // // Place the rendered HTML for the page body into a top level variable.
-    // $variables['page']              = $variables['page']['#children'];
-    // $variables['page_bottom'] .= drupal_get_js('footer');
-
-    // $variables['head']    = drupal_get_html_head();
-    // $variables['css']     = drupal_add_css();
-    // $variables['styles']  = drupal_get_css();
-    // $variables['scripts'] = drupal_get_js();
-    //die('<pre>'. print_r($variables['css'], true) .'</pre>');
 }
 
 function tenshin_theme_process_page(&$variables) {
@@ -137,7 +123,6 @@ function tenshin_theme_process_page(&$variables) {
     $variables['footer_text_2'] = theme_get_setting('footer_text_2', 'tenshin_theme');
 
     $variables['video_teasers'] = video_teasers();
-    //die('<pre>'. print_r(request_path(), true) .'</pre>');
 }
 
 function tenshin_theme_process_node(&$variables) {
