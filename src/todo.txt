@@ -1,3 +1,0 @@
-SELECT `sourceid`, `destid1` FROM `migrate_map_e53bb1b10nodepage`
-
-- предположительно это то что мне надо

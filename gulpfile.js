@@ -24,9 +24,18 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
     var browserify = require('browserify'),
         babelify   = require('babelify'),
+        uglify     = require('gulp-uglify'),
+        buffer     = require('vinyl-buffer'),
         source     = require('vinyl-source-stream');
 
-    return browserify({ entries: 'src/js/index.js'})
+    return browserify({
+            entries: './src/js/index.js',
+            debug: false,
+            paths: [
+                //'./src/js/vendor',
+                './node_modules'
+            ]
+        })
         .transform(babelify, {
             presets: ['es2015', 'stage-0']
         })
@@ -36,6 +45,8 @@ gulp.task('scripts', function() {
             console.log(err.message);
         })
         .pipe(source('scripts.js'))
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(gulp.dest('.'));
 });
 

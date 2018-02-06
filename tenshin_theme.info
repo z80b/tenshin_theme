@@ -4,8 +4,7 @@ package = Core
 version = VERSION
 core = 7.x
 stylesheets[all][] = styles.css
-scripts[0] = vendor/slick.min.js
-scripts[1] = scripts.js
+scripts[] = scripts.js
 
 regions[menu] = Menu
 regions[content] = Content

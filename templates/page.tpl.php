@@ -1,4 +1,4 @@
-<div class="lp-page<?php print drupal_is_front_page() ? ' lp-page--front' : '' ?>">
+<div class="lp-page<?php print drupal_is_front_page() ? ' lp-page--front' : '' ?> js-lp-page">
     <section class="lp-page__header lp-header">
         <?php if ($main_menu): ?>
         <nav class="lp-header__menu lp-menu">
@@ -30,7 +30,7 @@
                 <div class="lp-header-teaser">
                     <h2 class="lp-header-teaser__title"><?php print $teaser->title ?></h2>
                     <span class="lp-header-teaser__text"><?php print strip_tags($teaser->body_summary) ?></span>
-                    <a class="lp-header-teaser__button href="<?php print url('/node/'. $teaser->nid) ?>">Узнать больше</a>
+                    <?php print l('Узнать больше', 'node/'. $teaser->nid, array('attributes' => array('class' => 'lp-header-teaser__button')))?>
                 </div>
                 <?php endforeach ?>
             </div>
@@ -49,12 +49,11 @@
             <button class="lp-videos__button lp-videos__button--right"></button>
             <div class="lp-videos__slider js-video-slider">
                 <?php foreach($video_teasers as $teaser): ?>
-                <a  class="lp-videos__slide"
+                <a  class="lp-videos__slide js-video-link"
                     href="<?php print $teaser->video ?>"
                     title="<?php print $teaser->title ?>"
                     data-embed-url="<?php print $teaser->embed_url ?>">
                         <span class="lp-videos__image-wrapper">
-                            <!--img class="lp-videos__image" src="<?php print file_create_url($teaser->thumbnail) ?>"/-->
                             <span class="lp-videos__image" style="background-image: url('<?php print file_create_url($teaser->thumbnail) ?>')"></span>
                         </span>
                     </a>

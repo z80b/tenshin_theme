@@ -7,9 +7,6 @@
     	@import url('sites/all/themes/tenshin_theme/styles.css?_=fewfew');
     </style> -->
     <?php print $styles; ?>
-<!--     <script type="text/javascript" src="/sites/all/themes/tenshin_theme/js/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="/sites/all/themes/tenshin_theme/js/slick.min.js"></script>
-    <script type="text/javascript" src="/sites/all/themes/tenshin_theme/scripts.js?_=fewfew"></script> -->
     <?php print $scripts; ?>
 </head>
 <body>

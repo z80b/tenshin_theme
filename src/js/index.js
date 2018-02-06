@@ -1,5 +1,11 @@
-import _ from 'underscore-es';
-import Backbone from './vendor/backbone';
-import Test from './test';
+import $ from 'jquery';
+import Backbone from 'backbone';
+import _ from 'underscore';
 
-const test = new Test();
+import PageView from './page-view';
+
+$(document).ready(() => {
+	window.page = new PageView({ el: '.js-lp-page' });	
+})
+
+
