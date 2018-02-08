@@ -50,6 +50,7 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('.'));
 });
 
-gulp.task('default', ['styles'], function() {
-    gulp.watch('./**/*.styl', ['styles']);
+gulp.task('default', ['styles', 'scripts'], function() {
+    gulp.watch('./src/css/**/*.styl', ['styles']);
+    gulp.watch('./src/js/**/*.js', ['scripts']);
 });

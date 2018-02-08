@@ -18,10 +18,24 @@
         </div>
         <?php if ($is_front): ?>
             <?php if ($slider_images): ?>
-            <div class="lp-header__slider">
+            <div class="lp-header__slider lp-slider js-head-slider">
+                <div class="lp-slider__body">
                 <?php foreach ($slider_images as $index => $uri): ?>
-                <img class="lp-header__slide" src="<?php print file_create_url($uri) ?>" style="z-index: <?php print -$index ?>">
+                    <img class="lp-header__slide" src="<?php print file_create_url($uri) ?>" style="z-index: <?php print -$index ?>">
                 <?php endforeach ?>
+                </div>
+                <div class="lp-slider__wrapper">
+                    <div class="lp-slider__controls lp-controls">
+                        <button class="lp-slider__button-prev"></button>
+                        <button class="lp-slider__button">1</button>
+                        <button class="lp-slider__button">2</button>
+                        <button class="lp-slider__button">3</button>
+                        <button class="lp-slider__button">4</button>
+                        <button class="lp-slider__button">5</button>
+                        <button class="lp-slider__button">6</button>
+                        <button class="lp-slider__button-next"></button>
+                    </div>
+                </div>
             </div>
             <?php endif ?>
             <?php if ($header_teasers): ?>

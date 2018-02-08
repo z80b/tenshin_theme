@@ -6,6 +6,11 @@ class VideoView extends Backbone.View {
         super(props);
     }
 
+    initialize() {
+        this.$head = this.$el.find('.lp-popup__head');
+        this.$body = this.$el.find('.lp-popup__body');
+    }
+
     get events() { return {
         'click': 'stop'
     }}
@@ -21,16 +26,23 @@ class VideoView extends Backbone.View {
                 src: props.url
             });
 
-        this.$('.lp-popup__head').text(props.title);
-        this.$('.lp-popup__body').html($frame);
-        this.$el.css('display', 'block').removeClass('lp-popup--hidden');
+        this.$head.text(props.title);
+        this.$body.html($frame);
+        this.$el
+            .css('display', 'block')
+            .delay(500)
+            .removeClass('lp-popup--hidden');
     }
 
     stop(event) {
         event.preventDefault();
-        this.$el.css('display', 'none').addClass('lp-popup--hidden');
-        this.$('.lp-popup__head').text('');
-        this.$('.lp-popup__body').empty();
+        this.$el
+            .css('display', 'none')
+            .delay(500)
+            .addClass('lp-popup--hidden');
+
+        this.$head.text('');
+        this.$body.empty();
     }
 }
 
