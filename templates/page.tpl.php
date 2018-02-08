@@ -33,6 +33,8 @@
                         <button class="lp-slider__button">4</button>
                         <button class="lp-slider__button">5</button>
                         <button class="lp-slider__button">6</button>
+                        <button class="lp-slider__button">7</button>
+                        <button class="lp-slider__button">8</button>
                         <button class="lp-slider__button-next"></button>
                     </div>
                 </div>
