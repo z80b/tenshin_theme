@@ -17,7 +17,8 @@ class PageView extends Backbone.View {
         this.$('.js-video-slider').slick({
             infinite: true,
             slidesToShow: 5,
-            slidesToScroll: 1,
+            slidesToScroll: 5,
+            lazyLoad: 'ondemand',
             nextArrow: '.lp-videos__button--right',
             prevArrow: '.lp-videos__button--left'
         });

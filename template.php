@@ -53,9 +53,9 @@ function video_teasers() {
     foreach ($result as $key => $item) {
         $vid = parseVid($item->video);
         $result[$key]->video_id = $vid;
-        $result[$key]->embed_url = "http://youtube.com/embed/{$vid}?rel=0&hd=1&border=0&controls=0&autoplay=1&showinfo=0&modestbranding=1";
+        $result[$key]->embed_url = "https://youtube.com/embed/{$vid}?rel=0&hd=1&border=0&controls=0&autoplay=1&showinfo=0&modestbranding=1";
         if (!$item->thumbnail) {
-            $result[$key]->thumbnail = "http://img.youtube.com/vi/{$vid}/0.jpg";
+            $result[$key]->thumbnail = "https://img.youtube.com/vi/{$vid}/1.jpg";
         }
     }
 
