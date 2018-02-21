@@ -28,19 +28,14 @@ class VideoView extends Backbone.View {
 
         this.$head.text(props.title);
         this.$body.html($frame);
-        this.$el
-            .css('display', 'block')
-            .delay(500)
-            .removeClass('lp-popup--hidden');
+        this.$el.css('display', 'block');
+        setTimeout(() => this.$el.removeClass('lp-popup--hidden'), 100);
     }
 
     stop(event) {
         event.preventDefault();
-        this.$el
-            .css('display', 'none')
-            .delay(500)
-            .addClass('lp-popup--hidden');
-
+        this.$el.addClass('lp-popup--hidden');
+        setTimeout(() => this.$el.css('display', 'none'), 500);
         this.$head.text('');
         this.$body.empty();
     }

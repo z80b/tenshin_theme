@@ -1,9 +1,9 @@
 .lp-popup
-    absolute()
+    relative()
     background inline-image('teaser-bg.gif') repeat
-    transform translate(-50%, -50%)
+    transform scale(1)
     border-radius 4px
-    transition 1s opacity ease .5s
+    transition .5s all ease
     opacity 1
     
     &__head
@@ -40,11 +40,9 @@
         
     &__wrapper
         absolute top 50% left 50%
-        transform scale(1)
-        transition 1s transform ease .5s
+        transform translate(-50%, -50%)
         
     &--hidden
-        opacity 0
-        
-        .lp-popup__wrapper 
+        .lp-popup
+            opacity 0
             transform scale(0)

@@ -123,6 +123,9 @@ function tenshin_theme_process_page(&$variables) {
     $variables['footer_text_2'] = theme_get_setting('footer_text_2', 'tenshin_theme');
 
     $variables['video_teasers'] = video_teasers();
+    $variables['current_path'] = current_path();
+
+    //die('<pre>'. print_r($variables, true) .'</pre>');
 }
 
 function tenshin_theme_process_node(&$variables) {
@@ -136,3 +139,7 @@ function tenshin_theme_process_node(&$variables) {
 
     //die('<pre>'. print_r($variables, true) .'</pre>');
 }
+
+// function tenshin_theme_theme(&$variables) {
+//     //die('<pre>'. print_r($variables, true) .'</pre>');
+// }
