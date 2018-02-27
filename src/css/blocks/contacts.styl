@@ -1,0 +1,27 @@
+.lp-contacts
+    absolute top 100px left 0
+    z-index 10
+
+    &__content
+        background-color #ddd
+        border 3px solid #aaa
+        box-sizing border-box
+        padding 30px
+        width 500px
+        absolute top 0 right 0
+        transition .5s all ease
+
+        .lp-contacts__switch:checked + &
+            right -500px
+
+
+    &__button
+        @extends $red-button
+        font 700 16px/2 Arial
+        width 120px
+        absolute top 45px right -158px
+        transform-origin left top 0
+        transform rotate(90deg)
+
+    &__switch
+        display none

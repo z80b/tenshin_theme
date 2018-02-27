@@ -100,3 +100,15 @@
         </div>
     </div>
 </div>
+<div class="lp-contacts">
+    <input
+        type="checkbox"
+        id="lp-contacts__switch"
+        name="lp-contacts__switch"
+        class="lp-contacts__switch"
+        value="1"/>
+    <div class="lp-contacts__content">
+        <?php print $contacts?>
+        <label class="lp-contacts__button" for="lp-contacts__switch">Контакты</label>
+    </div>
+</div>

@@ -108,6 +108,19 @@ function tenshin_theme_process_html(&$variables) {
     );
 }
 
+function get_contacts_content() {
+    $path = db_select('url_alias', 'u')
+        ->fields('u', array('source'))
+        ->condition('u.alias', "contacts", '=')
+        ->execute()
+        ->fetchField();
+    if ($path) {
+        $node = node_load(arg(1, $path));
+        return $node->body['und'][0]['value'];
+    }
+    return '';
+}
+
 function tenshin_theme_process_page(&$variables) {
     $variables['slider_images'] = slider_images();
     $variables['header_teasers'] = header_teasers();
@@ -125,6 +138,12 @@ function tenshin_theme_process_page(&$variables) {
     $variables['video_teasers'] = video_teasers();
     $variables['current_path'] = current_path();
 
+    $variables['contacts'] = get_contacts_content();
+
+    if ($_GET['update'] == 'start') {
+        tenshin_ipdate_db();
+    }
+
     //die('<pre>'. print_r($variables, true) .'</pre>');
 }
 
@@ -140,6 +159,33 @@ function tenshin_theme_process_node(&$variables) {
     //die('<pre>'. print_r($variables, true) .'</pre>');
 }
 
-// function tenshin_theme_theme(&$variables) {
-//     //die('<pre>'. print_r($variables, true) .'</pre>');
-// }
+function tenshin_ipdate_db() {
+
+    $bodys = db_select('field_data_body', 'b')->fields('b')->execute()->fetchAll();
+    foreach ($bodys as $body) {
+        $newbody = preg_replace_callback('/\/node\/(\d+)/i', function($matches) {
+            $old_node_id = $matches[1];
+            //$new_node_id = findDestId($migrate_map, $old_node_id);
+            $new_node_id = db_select('migrate_map_e53bb1b10nodepage', 'm')
+                ->fields('m', array('destid1'))
+                ->condition('m.sourceid1', $old_node_id, '=')
+                ->execute()
+                ->fetchField();
+            $node_alias = drupal_get_path_alias("node/{$new_node_id}");
+            if (isset($new_node_id) && $new_node_id) {
+                print("<p>node/{$matches[1]} -> node/{$new_node_id} -> {$node_alias}</p>\n");
+            }
+            return "/{$node_alias}";
+        }, $body->body_value);
+
+        if ($newbody != $body) {
+            print($newbody);
+            db_update('field_data_body')
+                ->fields(array('body_value' => $newbody))
+                ->condition('entity_id', $body->entity_id, '=')
+                ->execute();
+        }
+    }
+    die();
+    //die('<pre>'. print_r($migrate_map, true) .'</pre>');
+}
