@@ -161,11 +161,34 @@ function tenshin_theme_process_node(&$variables) {
 
 function tenshin_ipdate_db() {
 
-    $bodys = db_select('field_data_body', 'b')->fields('b')->execute()->fetchAll();
-    foreach ($bodys as $body) {
+    function replaceNodeLinks(&$body) {
         $newbody = preg_replace_callback('/\/node\/(\d+)/i', function($matches) {
             $old_node_id = $matches[1];
-            //$new_node_id = findDestId($migrate_map, $old_node_id);
+            $new_node_id = db_select('migrate_map_e53bb1b10nodepage', 'm')
+                ->fields('m', array('destid1'))
+                ->condition('m.sourceid1', $old_node_id, '=')
+                ->execute()
+                ->fetchField();
+            $node_alias = drupal_get_path_alias("node/{$new_node_id}");
+            if (isset($new_node_id) && $new_node_id) {
+                print("<p>node/{$matches[1]} -> node/{$new_node_id} -> {$node_alias}</p>\n");
+            }
+            return "/{$node_alias}";
+        }, $body->body_value);
+    }
+
+    function replaceNodeImagesLinks(&$body) {
+        $newbody = preg_replace_callback('/\/images\/images/i', function($matches) {
+            print("<p>node_id: {$body->entity_id}   {$matches[0]}</p>\n");
+            return '/images';
+        }, $body->body_value);
+    }
+
+    $bodys = db_select('field_data_body', 'b')->fields('b')->execute()->fetchAll();
+    foreach ($bodys as $body) {
+
+        $newbody = preg_replace_callback('/\/node\/(\d+)/i', function($matches) {
+            $old_node_id = $matches[1];
             $new_node_id = db_select('migrate_map_e53bb1b10nodepage', 'm')
                 ->fields('m', array('destid1'))
                 ->condition('m.sourceid1', $old_node_id, '=')
@@ -178,8 +201,8 @@ function tenshin_ipdate_db() {
             return "/{$node_alias}";
         }, $body->body_value);
 
-        if ($newbody != $body) {
-            print($newbody);
+        if ($newbody && $newbody != $body->body_value) {
+            //print($newbody);
             db_update('field_data_body')
                 ->fields(array('body_value' => $newbody))
                 ->condition('entity_id', $body->entity_id, '=')
