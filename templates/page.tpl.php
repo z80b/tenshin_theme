@@ -21,23 +21,28 @@
             <div class="lp-header__slider lp-slider js-head-slider">
                 <div class="lp-slider__body">
                 <?php foreach ($slider_images as $index => $uri): ?>
-                    <img class="lp-header__slide" src="<?php print file_create_url($uri) ?>" style="z-index: <?php print -$index ?>">
+                    <img class="lp-slider__item<?php if (!$index) print ' lp-slider__item--active'?>"
+                         src="<?php print file_create_url($uri) ?>"/>
                 <?php endforeach ?>
                 </div>
+                <?php if (count($slider_images) > 1): ?>
                 <div class="lp-slider__wrapper">
                     <div class="lp-slider__controls lp-controls">
-                        <button class="lp-slider__button-prev"></button>
-                        <button class="lp-slider__button">1</button>
-                        <button class="lp-slider__button">2</button>
-                        <button class="lp-slider__button">3</button>
-                        <button class="lp-slider__button">4</button>
-                        <button class="lp-slider__button">5</button>
-                        <button class="lp-slider__button">6</button>
-                        <button class="lp-slider__button">7</button>
-                        <button class="lp-slider__button">8</button>
-                        <button class="lp-slider__button-next"></button>
+                        <button
+                            class="lp-slider__button-prev js-slider-button"
+                            data-dir="-1"
+                            data-slide="<?php print count($slider_images) - 1 ?>"></button>
+                        <?php foreach ($slider_images as $index => $slide): ?>
+                        <button
+                            class="lp-slider__button js-slider-button<?php if (!$index) print ' lp-slider__button--active'?>"
+                            data-slide="<?php print $index ?>">
+                            <?php print $index + 1 ?>
+                        </button>
+                        <?php endforeach ?>
+                        <button class="lp-slider__button-next js-slider-button" data-slide="1"></button>
                     </div>
                 </div>
+                <?php endif ?>
             </div>
             <?php endif ?>
             <?php if ($header_teasers): ?>

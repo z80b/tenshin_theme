@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import VideoView from './video-view';
+import HeadSlider from './head-slider';
 import slick from './plugins/slick'
 
 class PageView extends Backbone.View {
@@ -14,6 +15,7 @@ class PageView extends Backbone.View {
     }
 
     initialize() {
+        this.headSlider = new HeadSlider({ el: '.js-head-slider' });
         this.$('.js-video-slider').slick({
             infinite: true,
             slidesToShow: 5,
