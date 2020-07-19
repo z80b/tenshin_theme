@@ -1,4 +1,4 @@
-
+<?php if (!$logged_in): ?>
 <div class="lp-popup__overlay">
     <div class="lp-popup__wrapper">
         <div class="lp-popup">
@@ -25,3 +25,6 @@
         </div>
     </div>
 </div>
+<?php else: ?>
+<?php print $roleProfile ?>
+<?php endif ?>

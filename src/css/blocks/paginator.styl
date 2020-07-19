@@ -1,0 +1,63 @@
+.x-paginator
+  @extends $clear-block
+  display block
+  background-color #eee
+  border-bottom solid 2px #990000
+  border-radius 10px
+
+  &__button
+    display block
+    float left
+    font 14px/30px Arial
+    text-align center
+    text-decoration none
+    color grey
+    width 2em
+    border none
+    background-color #eee
+    outline none
+    padding 0
+    margin 7px 1px
+    cursor pointer
+    transition .5s all ease
+    
+    &--active, &:hover
+      background linear-gradient(to bottom, #eee 0%, #999 100%)
+      border-radius 5px
+      color #990000
+      font-weight 700
+        
+  &__next, &__prev
+    display block
+    float left
+    size 1.8em 1.8em
+    margin .4em .4em
+    border solid 2px #fff
+    border-radius 50%
+    background-color #990000
+    box-shadow 0 0 10px 0px #555
+    outline none
+    cursor pointer
+    transition .5s all ease
+
+    &--disabled
+      background linear-gradient(to bottom, #eee 0%, #999 100%)
+    
+  &__next:hover, &__prev:hover
+    border-radius 50%
+    box-shadow 0 0 3px 0px #555
+    background-color #c00 !important
+          
+  &__prev
+    icon-arrow left 10px #fff 2px
+      
+    &::after
+      size 5px 5px
+      transform translate(13px, 11px) rotate(-135deg)
+          
+  &__next
+    icon-arrow right 10px #fff 2px
+      
+    &::after
+      size 5px 5px
+      transform translate(9px, 11px) rotate(45deg)
